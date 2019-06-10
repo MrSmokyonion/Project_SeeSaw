@@ -21,5 +21,8 @@ public class CubeTalk : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
             Debug.Log("Hello Unity");
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            Debug.Log("Hello Arrow");
     }
 }
