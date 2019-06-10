@@ -14,6 +14,9 @@ public class CubeTalk : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Debug.Log("asdasd");
+            Debug.Log("Hello GitHub");
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            Debug.Log("Hello World");
     }
 }
