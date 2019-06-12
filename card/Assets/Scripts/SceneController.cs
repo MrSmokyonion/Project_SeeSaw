@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
+    
     public const int gridRows = 2;
     public const int gridCols = 4;
-    public const float offsetX = 4f;
-    public const float offsetY = 5f;
+    public const float offsetX = 10f;
+    public const float offsetY = 15f;
 
     [SerializeField] private MainCard originalCard;
     [SerializeField] private Sprite[] images;
 
     private void Start()
     {
+
         Vector3 startPos = originalCard.transform.position;
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 };
@@ -57,4 +59,52 @@ public class SceneController : MonoBehaviour
         }
         return newArray;
     }
+
+    //-----------------------------------------------------------------------------
+
+    private MainCard _firstRevealed;
+    private MainCard _secondRevealed;
+
+    private int _score = 0;
+    [SerializeField] private TextMesh scoreLabel;
+
+    public bool canReveal
+    {
+        get { return _secondRevealed == null; }
+    }
+
+    public void CardReaveled(MainCard card)
+    {
+        if(_firstRevealed == null)
+        {
+            _firstRevealed = card;
+        }
+        else
+        {
+            _secondRevealed = card;
+            StartCoroutine(CheckMatch());
+        }
+    }
+
+    private IEnumerator CheckMatch()
+    {
+        if(_firstRevealed.id == _secondRevealed.id)
+        {
+            _score++;
+            scoreLabel.text = "Score: " + _score;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            _firstRevealed.Unreveal();
+            _secondRevealed.Unreveal();
+        }
+        _firstRevealed = null;
+        _secondRevealed = null;
+    }
+   
 }
+
+
+           
