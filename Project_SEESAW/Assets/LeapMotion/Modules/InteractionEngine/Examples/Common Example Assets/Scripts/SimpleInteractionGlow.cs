@@ -31,7 +31,7 @@ public class SimpleInteractionGlow : MonoBehaviour {
   [Header("InteractionBehaviour Colors")]
   public Color defaultColor = Color.Lerp(Color.black, Color.white, 0.1F);
   public Color suspendedColor = Color.red;
-  public Color hoverColor = Color.Lerp(Color.blue, Color.green, 0.7F);
+  public Color hoverColor = Color.Lerp(Color.black, Color.white, 0.7F);
   public Color primaryHoverColor = Color.Lerp(Color.black, Color.white, 0.8F);
 
   [Header("InteractionButton Colors")]
