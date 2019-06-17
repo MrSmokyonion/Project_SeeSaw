@@ -20,7 +20,7 @@ MonoBehaviour:
     maxSimultaneousImageTargets: 4
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
-    version: 8.1.11
+    version: 8.1.2
     eulaAcceptedVersions: '{"Values":["8.1"]}'
   digitalEyewear:
     cameraOffset: 0.06
@@ -55,7 +55,7 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 0
     autoStartTracker: 0
-    trackingMode: 1
+    trackingMode: 0
     posePrediction: 0
     modelCorrectionMode: 0
     modelTransformEnabled: 0
