@@ -5,7 +5,7 @@ using Microsoft.CognitiveServices.Speech;
 
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class rotateImage : MonoBehaviour
 {
@@ -24,7 +24,8 @@ public class rotateImage : MonoBehaviour
     private bool waitingForReco;
     private string message;
     private bool micPermissionGranted = false;
-
+    private TextMeshPro textMesH;
+    private int number;
     public Transform LocalTransform
     {
         get {
@@ -38,6 +39,8 @@ public class rotateImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        textMesH = gameObject.GetComponent<TextMeshPro>();
+        number = 0;
         if (outputText == null)
         {
             UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
@@ -72,6 +75,8 @@ public class rotateImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        textMesH.text = number.ToString();
+        number++;
 #if PLATFORM_ANDROID
         if (!micPermissionGranted && Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
