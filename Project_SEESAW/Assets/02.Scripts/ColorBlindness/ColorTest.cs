@@ -5,62 +5,46 @@ using UnityEngine.UI;
 
 public class ColorTest : MonoBehaviour
 {
+<<<<<<< HEAD
     public static Button NormalButton;
     public Button NoNumberButton;
     public Button RedGreenButton;
     public Button RedButton;
     public Button GreenButton;
+=======
+    private int ColorBlindnessNumber = 0;
+
+    public Button NormalButton;
+    public Button BlindnessButton;
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
 
     public bool state = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        //List 초기화
-        ColorResult.ResultNumber.Clear();
-        //InputField를 찾는다
-        //InputFieldFind = GameObject.Find("InputField");
-        //inputFieldObject = InputFieldFind.GetComponent<InputField>();
-       
-        //버튼클릭시 이벤트
-        NormalButton.onClick.AddListener(NormalButtonClick);
-        NoNumberButton.onClick.AddListener(NoNumberButtonClick);
-        RedGreenButton.onClick.AddListener(RedGreenBlinessButton);
-        RedButton.onClick.AddListener(RedBlinessButton);
-        GreenButton.onClick.AddListener(GreenBlinessButton);
-        
-        //SetActive활성화
         gameObject.SetActive(state);
+        NormalButton.onClick.AddListener(NormalButtonClick);
+        BlindnessButton.onClick.AddListener(ColorBindnessButtonClick);
     }
+<<<<<<< HEAD
     //정상적인 번호 선택
     public static void NormalButtonClick()
+=======
+
+    public void NormalButtonClick()
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
     {
-        ColorResult.ResultNumber.Add(NormalButton.GetComponentInChildren<Text>().text);
-        //Debug.Log(ColorResult.ResultNumber.Count);
+        ColorResult.ResultNumber.Add(1);
+        Debug.Log("정상");
+        Debug.Log("카운트" + ColorResult.ResultNumber.Count);
     }
-    //숫자 없는 버튼 클릭
-    public void NoNumberButtonClick()
+
+    public void ColorBindnessButtonClick()
     {
-        ColorResult.ResultNumber.Add("0");
-        //Debug.Log(ColorResult.ResultNumber.Count);
-    }
-    //적녹색맹 버튼 클릭
-    public void RedGreenBlinessButton()
-    {
-        ColorResult.ResultNumber.Add(RedGreenButton.GetComponentInChildren<Text>().text);
-        //Debug.Log(ColorResult.ResultNumber.Count);
-    }
-    //적색맹 버튼 클릭
-    public void RedBlinessButton()
-    {
-        ColorResult.ResultNumber.Add(RedButton.GetComponentInChildren<Text>().text);
-        //Debug.Log(ColorResult.ResultNumber.Count);
-    }
-    //녹색맹 버튼 클릭
-    public void GreenBlinessButton()
-    {
-        ColorResult.ResultNumber.Add(GreenButton.GetComponentInChildren<Text>().text);
-        //Debug.Log(ColorResult.ResultNumber.Count);
+        ColorResult.ResultNumber.Add(0);
+        Debug.Log("색맹");
+        Debug.Log("카운트" + ColorResult.ResultNumber.Count);
     }
 
     public void Change()
@@ -76,4 +60,6 @@ public class ColorTest : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+
 }
