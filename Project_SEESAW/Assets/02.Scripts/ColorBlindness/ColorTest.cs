@@ -6,16 +6,22 @@ using UnityEngine.UI;
 public class ColorTest : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static Button NormalButton;
     public Button NoNumberButton;
     public Button RedGreenButton;
     public Button RedButton;
     public Button GreenButton;
 =======
+=======
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
     private int ColorBlindnessNumber = 0;
 
     public Button NormalButton;
     public Button BlindnessButton;
+<<<<<<< HEAD
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
+=======
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
 
     public bool state = false;
@@ -28,9 +34,12 @@ public class ColorTest : MonoBehaviour
         BlindnessButton.onClick.AddListener(ColorBindnessButtonClick);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     //정상적인 번호 선택
     public static void NormalButtonClick()
 =======
+=======
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
 
     public void NormalButtonClick()
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
