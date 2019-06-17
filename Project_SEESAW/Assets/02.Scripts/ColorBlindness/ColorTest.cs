@@ -7,6 +7,7 @@ public class ColorTest : MonoBehaviour
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static Button NormalButton;
     public Button NoNumberButton;
     public Button RedGreenButton;
@@ -15,11 +16,16 @@ public class ColorTest : MonoBehaviour
 =======
 =======
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
+=======
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
     private int ColorBlindnessNumber = 0;
 
     public Button NormalButton;
     public Button BlindnessButton;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
+=======
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
 =======
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
@@ -35,9 +41,12 @@ public class ColorTest : MonoBehaviour
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //정상적인 번호 선택
     public static void NormalButtonClick()
 =======
+=======
+>>>>>>> parent of 51a1bcd... ColorBliness Completion
 =======
 >>>>>>> parent of 51a1bcd... ColorBliness Completion
 
