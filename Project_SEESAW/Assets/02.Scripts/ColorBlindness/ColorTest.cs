@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ColorTest : MonoBehaviour
 {
-    public Button NormalButton;
+    public static Button NormalButton;
     public Button NoNumberButton;
     public Button RedGreenButton;
     public Button RedButton;
@@ -33,7 +33,7 @@ public class ColorTest : MonoBehaviour
         gameObject.SetActive(state);
     }
     //정상적인 번호 선택
-    public void NormalButtonClick()
+    public static void NormalButtonClick()
     {
         ColorResult.ResultNumber.Add(NormalButton.GetComponentInChildren<Text>().text);
         //Debug.Log(ColorResult.ResultNumber.Count);
