@@ -14,18 +14,17 @@ public class rotateImage : MonoBehaviour
     private Transform m_transform;
     public Text m_text;
 
+    private string RandNum;
+    public TextMeshPro TMP;
+
     private double eyeSight = 0.1;
     private int wrongAnswer = 0;
-
-    public Text outputText;
-    public Button startRecoButton;
 
     private object threadLocker = new object();
     private bool waitingForReco;
     private string message;
     private bool micPermissionGranted = false;
-    private TextMeshPro textMesH;
-    private int number;
+
     public Transform LocalTransform
     {
         get {
@@ -39,44 +38,37 @@ public class rotateImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textMesH = gameObject.GetComponent<TextMeshPro>();
-        number = 0;
-        if (outputText == null)
-        {
-            UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
-        }
-        else if (startRecoButton == null)
-        {
-            message = "startRecoButton property is null! Assign a UI Button to it.";
-            UnityEngine.Debug.LogError(message);
-        }
-        else
-        {
-            // Continue with normal initialization, Text and Button objects are present.
+        CreateRandomTMP();
+//        if (outputText == null)
+//        {
+//            UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
+//        }
 
-#if PLATFORM_ANDROID
-            // Request to use the microphone, cf.
-            // https://docs.unity3d.com/Manual/android-RequestingPermissions.html
-            message = "Waiting for mic permission";
-            if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
-            {
-                Permission.RequestUserPermission(Permission.Microphone);
-            }
-#else
-            micPermissionGranted = true;
-            message = "Click button to recognize speech";
-#endif
-            startRecoButton.onClick.AddListener(ButtonClick);
-        }
-        RandomRotate();
+        //        else
+        //        {
+        //            // Continue with normal initialization, Text and Button objects are present.
+
+        //#if PLATFORM_ANDROID
+        //            // Request to use the microphone, cf.
+        //            // https://docs.unity3d.com/Manual/android-RequestingPermissions.html
+        //            message = "Waiting for mic permission";
+        //            if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        //            {
+        //                Permission.RequestUserPermission(Permission.Microphone);
+        //            }
+        //#else
+        //            micPermissionGranted = true;
+        //            message = "Click button to recognize speech";
+        //#endif
+        //            startRecoButton.onClick.AddListener(ButtonClick);
+        //        }
+
         m_text.text = eyeSight.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        textMesH.text = number.ToString();
-        number++;
 #if PLATFORM_ANDROID
         if (!micPermissionGranted && Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
@@ -84,74 +76,41 @@ public class rotateImage : MonoBehaviour
             message = "Click button to recognize speech";
         }
 #endif
-
-        lock (threadLocker)
+        if(message != null)
         {
-            if (startRecoButton != null)
-            {
-                startRecoButton.interactable = !waitingForReco && micPermissionGranted;
-            }
-            if (outputText != null)
-            {
-                outputText.text = message;
-            }
+            Check();
+            message = null;
+        }
+    
+    }
+
+    private void Check()
+    {
+        
+        if(message == TMP.text + ".")
+        {
+            Debug.Log("맞음");
+        }
+        else
+        {
+            Debug.Log("틀림");
         }
     }
 
-    private void Check(int direction)
+    private void CreateRandomTMP()
     {
-        if(wrongAnswer <= 5)
-        {
-            if (ERotateState == (State)direction)
-            {
-                LocalTransform.localPosition =
-                    new Vector3(LocalTransform.localPosition.x, LocalTransform.localPosition.y, LocalTransform.localPosition.z + 2);
-                eyeSight += 0.1;
-                m_text.text = eyeSight.ToString();
-            }
-            else
-            {
-                wrongAnswer += 1;
-                LocalTransform.localPosition =
-                    new Vector3(LocalTransform.localPosition.x, LocalTransform.localPosition.y, LocalTransform.localPosition.z - 2);
-                eyeSight -= 0.1;
-                m_text.text = eyeSight.ToString();
-            }
-        }
-      else
-        {
-            Debug.Log(eyeSight.ToString());
-        }
-    }
+        RandNum = Random.Range(1, 9).ToString();
+        TMP.text = RandNum;
+        RecordVoice();
 
-    private void RandomRotate()
-    {
-        ERotateState = (State)Random.Range(0, 3);
-
-        switch (ERotateState)
-        {
-            case State.DOWN:
-                LocalTransform.localRotation = Quaternion.Euler(LocalTransform.localRotation.x, LocalTransform.localRotation.y, 0);
-                break;
-            case State.RIGHT:
-                LocalTransform.localRotation = Quaternion.Euler(LocalTransform.localRotation.x, LocalTransform.localRotation.y, 90);
-                break;
-            case State.UP:
-                LocalTransform.localRotation = Quaternion.Euler(LocalTransform.localRotation.x, LocalTransform.localRotation.y, 180);
-                break;
-            case State.LEFT:
-                LocalTransform.localRotation = Quaternion.Euler(LocalTransform.localRotation.x, LocalTransform.localRotation.y, 270);
-                break;
-        }
     }
 
     public void RotateImage(int direction)
     {
-        Check(direction);
-        RandomRotate();
+        CreateRandomTMP();
     }
 
-    public async void ButtonClick()
+    public async void RecordVoice()
     {
         // Creates an instance of a speech config with specified subscription key and service region.
         // Replace with your own subscription key and service region (e.g., "westus").

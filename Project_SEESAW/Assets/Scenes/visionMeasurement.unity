@@ -359,8 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: {fileID: 811425724}
-  outputText: {fileID: 0}
-  startRecoButton: {fileID: 0}
+  TMP: {fileID: 0}
 --- !u!65 &688664126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -747,8 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: {fileID: 811425724}
-  outputText: {fileID: 1622054199}
-  startRecoButton: {fileID: 1328955815}
+  TMP: {fileID: 1472664952}
 --- !u!114 &1472664952
 MonoBehaviour:
   m_ObjectHideFlags: 0
