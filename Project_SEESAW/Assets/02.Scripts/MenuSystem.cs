@@ -6,35 +6,52 @@ public class MenuSystem : MonoBehaviour
 {
     [Header("Objects")]
     public GameObject menu;
-    public GameObject ui;
-    public GameObject toggle;
+    public GameObject btn;
     public GameObject camera;
+
+    [Space(10)]
+    public GameObject Menu1;
+    public GameObject Menu2;
 
     [Header("float"), Range(0.2f, 0.8f)]
     public float distance;
 
     private Animator menuAni;
+    private bool isActive;
+    private bool isChange; //menu1, menu2 전환을 위한 논리값
 
     void Start()
     {
         menuAni = menu.GetComponent<Animator>();
-
-        ToggleMenu(false);
+        isActive = false;
+        isChange = false;
+        btn.SetActive(false);
         menu.SetActive(false);
     }
 
-    //UI Toggle 이벤트
-    public void ToggleMenu(bool tog)
+    //버튼 활/비활성화
+    public void ShowBtn()
     {
-        if(tog == true)
+        btn.SetActive(true);
+    }
+
+    public void HideBtn()
+    {
+        btn.SetActive(false);
+    }
+
+    //온/오프 버튼
+    public void OnOff()
+    {
+        if(isActive == false)
         {
-            toggle.SetActive(false);
-            ui.SetActive(true);
+            TurnOnMenu();
+            isActive = true;
         }
-        else if(tog == false)
+        else if(isActive == true)
         {
-            toggle.SetActive(true);
-            ui.SetActive(false);
+            TurnOffMenu();
+            isActive = false;
         }
     }
 
@@ -51,6 +68,7 @@ public class MenuSystem : MonoBehaviour
     public void TurnOffMenu()
     {
         menuAni.SetBool("isTurnOn", false);
+        menuAni.SetBool("changeMenu", false);
         StartCoroutine(WaitForAnimation(menuAni));
     }
 
@@ -61,5 +79,22 @@ public class MenuSystem : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         //menu.SetActive(false);
+    }
+
+    public void changeMenu()
+    {
+        if(isChange == false)
+        {
+            Menu1.SetActive(false);
+            Menu2.SetActive(true);
+            menuAni.SetBool("changeMenu", true);
+        }
+        else if( isChange == true)
+        {
+            Menu1.SetActive(true);
+            Menu2.SetActive(false);
+            menuAni.SetBool("changeMenu", false);
+        }
+        isChange = !isChange;
     }
 }
