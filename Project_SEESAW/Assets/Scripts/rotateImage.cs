@@ -6,31 +6,36 @@ using Microsoft.CognitiveServices.Speech;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class rotateImage : MonoBehaviour
 {
     private enum State {UP, DOWN, LEFT, RIGHT};
     private State ERotateState;
     private Transform m_transform;
-    public Text m_text;
+    private RectTransform TMPtransform;
+    public TextMeshPro TMPEyeSight;
 
     private string RandNum;
-    public TextMeshPro TMP;
+    public TextMeshPro TMPNumber;
 
-    private double eyeSight = 0.1;
+    float sceneChangeRemaningTime = 5.0f;
+    bool IsFinishTest = false;
+    public double eyeSight = 0.1;
     private int wrongAnswer = 0;
 
     private object threadLocker = new object();
     private bool waitingForReco;
     private string message;
-    private bool micPermissionGranted = false;
 
-    public Transform LocalTransform
+
+    public RectTransform TMPRectTransform
     {
-        get {
-            if (m_transform == null)
-                m_transform = GetComponent<Transform>();
-            return m_transform;
+        get
+        {
+            if (TMPtransform == null)
+                TMPtransform = GetComponent<RectTransform>();
+            return TMPtransform;
         }
     }
 
@@ -38,11 +43,12 @@ public class rotateImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateRandomTMP();
-//        if (outputText == null)
-//        {
-//            UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
-//        }
+        CheckEyeSight();
+        TMPEyeSight.text = eyeSight.ToString("0.0");
+        //        if (outputText == null)
+        //        {
+        //            UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
+        //        }
 
         //        else
         //        {
@@ -63,7 +69,6 @@ public class rotateImage : MonoBehaviour
         //            startRecoButton.onClick.AddListener(ButtonClick);
         //        }
 
-        m_text.text = eyeSight.ToString();
     }
 
     // Update is called once per frame
@@ -76,38 +81,77 @@ public class rotateImage : MonoBehaviour
             message = "Click button to recognize speech";
         }
 #endif
-        if(message != null)
+        if (message != null)
         {
             Check();
             message = null;
         }
-    
+
+        if (IsFinishTest)
+        {
+            TMPNumber.text = eyeSight.ToString() ;
+            sceneChangeRemaningTime -= Time.deltaTime;
+        }
+
+        if (sceneChangeRemaningTime <= 0)
+        {
+            //씬전환
+        }
+
+    }
+
+    private void FixedTMPScale(float size, bool isCorrect)
+    {
+
+        TMPRectTransform.localScale = new Vector3(1 * size, 1 * size, TMPRectTransform.localScale.z);
+        TMPEyeSight.text = eyeSight.ToString();
     }
 
     private void Check()
     {
-        
-        if(message == TMP.text + ".")
+        if(wrongAnswer < 5)
         {
-            Debug.Log("맞음");
+            if (message != TMPNumber.text + ".")
+            {
+                wrongAnswer += 1;
+                eyeSight -= 0.1;
+                float size = 1 / ((float)eyeSight);
+                Debug.Log(size);
+                FixedTMPScale(Temp(size), true);
+            }
+            else
+            {
+                eyeSight += 0.1;
+                float size = 1 / ((float)eyeSight);
+                FixedTMPScale(Temp(size), false);
+            }
+            CheckEyeSight();
         }
         else
         {
-            Debug.Log("틀림");
+            IsFinishTest = true;
         }
     }
 
-    private void CreateRandomTMP()
+    private float Temp(float value)
     {
-        RandNum = Random.Range(1, 9).ToString();
-        TMP.text = RandNum;
-        RecordVoice();
+        string[] split = value.ToString().Split('.');
+        if (split.Length != 2) { return value; }
+        int bLength = split[1].Length;
+        float ceil = Mathf.Ceil(float.Parse(split[1]));
 
+        var ret = float.Parse(string.Format("{0}.{1}", split[0], split[1]));
+
+        Debug.Log(ret);
+
+        return ret;
     }
 
-    public void RotateImage(int direction)
+    private void CheckEyeSight()
     {
-        CreateRandomTMP();
+        RandNum = UnityEngine.Random.Range(1, 10).ToString();
+        TMPNumber.text = RandNum;
+        RecordVoice();
     }
 
     public async void RecordVoice()
@@ -154,5 +198,6 @@ public class rotateImage : MonoBehaviour
                 waitingForReco = false;
             }
         }
+        //Check();
     }
 }
