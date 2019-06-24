@@ -22,11 +22,11 @@ public class Voicerecognition : MonoBehaviour
     private string[] RedNumber = new string[] { "0", "0", "17", "5", "0", "3", "6" };
     private int[] RedResult = new int[] { 0, 0, 17, 5, 0, 3, 6 };
     //입력 결과값
-    private int ResultNumber;
+    public static int ResultNumber;
     //색맹의 결과
-    private int NomalScore;
-    private int GreenScore;
-    private int RedScore;
+    public static int NomalScore;
+    public static int GreenScore;
+    public static int RedScore;
 
     public TextMeshPro textMeshPro;
     // Hook up the two properties below with a Text and Button object in your UI.
@@ -54,19 +54,23 @@ public class Voicerecognition : MonoBehaviour
     {
         if(ResultNumber == NomalScore)
         {
+            CameraFilterPack_Color_RGB.ColorRGB = new Color(1.0f, 1.0f, 1.0f);
             textMeshPro.text = "정상입니다.";
             return;
         }
         if (ResultNumber == GreenScore)
         {
-            textMeshPro.text = "적생맹입니다.";
+            CameraFilterPack_Color_RGB.ColorRGB = new Color(0.0f, 255.0f, 1.0f);
+            textMeshPro.text = "녹생맹입니다.";
             return;
         }
         if (ResultNumber == RedScore)
         {
-            textMeshPro.text = "녹색맹입니다.";
+            CameraFilterPack_Color_RGB.ColorRGB = new Color(255.0f, 0.0f, 0.0f);
+            textMeshPro.text = "적색맹입니다.";
             return;
         }
+
         if (message != null)
         {
             WaitFor();
@@ -113,7 +117,7 @@ public class Voicerecognition : MonoBehaviour
             }
         }
         //적색
-        else if (RedNumber.Equals(NomalNumber[count]))
+        else if (tmessage.Equals(RedNumber[count]))
         {
             ResultNumber += RedResult[count];
             textMeshPro.text = tmessage;
@@ -134,6 +138,7 @@ public class Voicerecognition : MonoBehaviour
             message = null;
             Voice();
         }
+
         //이미지 변환
         for (i = 0; i < 7; i++)
         {
