@@ -1,4 +1,5 @@
 ﻿using Leap.Unity;
+using Leap.Unity.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -25,8 +26,8 @@ public class Menu_Talk : MonoBehaviour
         cube.transform.position = obj.transform.position;
     }
 
-    public void SliderSay(GameObject tmp)
+    public void SliderSay(InteractionSlider tmp)
     {
-        Debug.Log(123);
+        Debug.Log(tmp.HorizontalSliderValue);
     }
 }
