@@ -16,6 +16,8 @@ public class ResultObj : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += whenLoaded;
+
+        result = new Vector3(5.0f, 1.0f, 1.0f);
     }
 
     public void SetResult(Vector3 val)
@@ -42,6 +44,6 @@ public class ResultObj : MonoBehaviour
 
     public void say()
     {
-        Debug.Log("sdagtfdgsdgrdfhbgfrdxhbdrfttrfht");
+        Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     }
 }
