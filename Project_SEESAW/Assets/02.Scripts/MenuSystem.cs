@@ -110,16 +110,20 @@ public class MenuSystem : MonoBehaviour
     {
         menuAni.SetTrigger("Menu Off");
         State = 0;
-        StartCoroutine(WaitForAnimation(menuAni));
+        StartCoroutine(WaitForAnimation(menuAni, menu));
     }
 
-    IEnumerator WaitForAnimation(Animator animator)
+    IEnumerator WaitForAnimation(Animator animator, GameObject obj)
     {
-        while(false == animator.IsInTransition(0))
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        //menu.SetActive(false);
+        //while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        //{
+        //    yield return new WaitForEndOfFrame();
+        //}
+
+        //yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f);
+        //yield return new WaitForSeconds(1.0f);
+        //obj.SetActive(false);
+        yield return null;
     }
     //=======================================================
 
@@ -185,14 +189,19 @@ public class MenuSystem : MonoBehaviour
         isActive = false;
         menuActive = false;
 
+        Animator ani;
+        GameObject obj;
         switch (who)
         {
-            case "Sharp": sharpAni.SetTrigger("Off"); break;
-            case "Contour": contourAni.SetTrigger("Off"); break;
-            case "Reversal": reversalAni.SetTrigger("Off"); break;
-            case "Color": colorAni.SetTrigger("Off"); break;
-            case "Focus": focusAni.SetTrigger("Off"); break;
+            case "Sharp":       ani = sharpAni;     obj = sharpMenu;    break;
+            case "Contour":     ani = contourAni;   obj = contourMenu;  break;
+            case "Reversal":    ani = reversalAni;  obj = reversalMenu; break;
+            case "Color":       ani = colorAni;     obj = colorMenu;    break;
+            case "Focus":       ani = focusAni;     obj = focusMenu;    break;
+            default: return;
         }
+        ani.SetTrigger("Off");
+        StartCoroutine(WaitForAnimation(ani, obj));
     }
 
     private void MenuAction(GameObject menu, Animator ani)
