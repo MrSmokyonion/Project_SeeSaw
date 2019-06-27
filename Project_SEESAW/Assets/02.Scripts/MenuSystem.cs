@@ -110,21 +110,21 @@ public class MenuSystem : MonoBehaviour
     {
         menuAni.SetTrigger("Menu Off");
         State = 0;
-        StartCoroutine(WaitForAnimation(menuAni, menu));
+        //StartCoroutine(WaitForAnimation(menuAni, menu));
     }
 
-    IEnumerator WaitForAnimation(Animator animator, GameObject obj)
-    {
-        //while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        //{
-        //    yield return new WaitForEndOfFrame();
-        //}
+    //IEnumerator WaitForAnimation(Animator animator, GameObject obj)
+    //{
+    //    while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+    //    {
+    //        yield return new WaitForEndOfFrame();
+    //    }
 
-        //yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f);
-        //yield return new WaitForSeconds(1.0f);
-        //obj.SetActive(false);
-        yield return null;
-    }
+    //    //yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f);
+    //    //yield return new WaitForSeconds(1.0f);
+    //    //obj.SetActive(false);
+    //    //yield return null;
+    //}
     //=======================================================
 
 
@@ -201,7 +201,7 @@ public class MenuSystem : MonoBehaviour
             default: return;
         }
         ani.SetTrigger("Off");
-        StartCoroutine(WaitForAnimation(ani, obj));
+        //StartCoroutine(WaitForAnimation(ani, obj));
     }
 
     private void MenuAction(GameObject menu, Animator ani)
