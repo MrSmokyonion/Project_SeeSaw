@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ResultObj : MonoBehaviour
 {
-    [HideInInspector]
-    public Vector3 result;
+    public GameObject btn;
+
+    private Vector3 result;
 
     private void Awake()
     {
@@ -15,17 +16,19 @@ public class ResultObj : MonoBehaviour
 
     private void Start()
     {
+        btn.SetActive(false);
         SceneManager.sceneLoaded += whenLoaded;
     }
 
-    public void SetResult(Vector3 val)
+    public void PrepareToLoadMain(Vector3 val)
     {
         result = val;
+        btn.SetActive(true);
     }
 
     void whenLoaded(Scene s, LoadSceneMode m)
     {
-        if(result != null)
+        if(s.name == "Leap Motion Test")
         {
             BravoX_L tmp = GameObject.Find("CenterEyeAnchor").GetComponent<BravoX_L>();
             tmp.Saturation_Red = result.x;
@@ -38,10 +41,5 @@ public class ResultObj : MonoBehaviour
     public void LoadToMain()
     {
         SceneManager.LoadScene("Leap Motion Test");
-    }
-
-    public void say()
-    {
-        Debug.Log("sdagtfdgsdgrdfhbgfrdxhbdrfttrfht");
     }
 }

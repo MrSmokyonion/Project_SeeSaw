@@ -219,6 +219,16 @@ public class MenuSystem : MonoBehaviour
         SceneManager.LoadScene("BlinessTest");
     }
 
+    public void LoadVisionTest()
+    {
+        SceneManager.LoadScene("visionMeasurement");
+    }
+
+    public void LoadCandleScene()
+    {
+        SceneManager.LoadScene("Candle");
+    }
+
     //=============================================================
     private IEnumerator DelayForMenu()
     {

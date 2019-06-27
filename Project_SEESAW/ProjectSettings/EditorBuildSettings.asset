@@ -6,57 +6,63 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/0-Splash.unity
-    guid: 7238041e8d31f4d439b8851a5d4bb6fa
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/1-Menu.unity
-    guid: 1763269b9427b4a44957006a02f06c30
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/2-Loading.unity
-    guid: 22b8f383624ec49ef986b9155d212ac1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-CloudReco.unity
-    guid: e434bc354d6d54b899b4fbf77b3118a3
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-CylinderTargets.unity
-    guid: b336b80db71704028995a1ea175dad4a
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-GroundPlane.unity
-    guid: 3151807591542436f9ddfbf021a1545d
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-ImageTargets.unity
-    guid: fa05b4f596c584dc79960294a1b601cc
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-ModelTargets.unity
-    guid: 530386685ba085242832bd5cc78d7222
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-ModelTargetsTrained.unity
-    guid: 82f95e601a789418da31413ca51abed4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-MultiTargets.unity
-    guid: d5e3b9c64d95e4105b0f8c39cd4dc3bd
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-ObjectReco.unity
-    guid: 633a6cb9bd1704671bdefaba667099b2
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-UserDefinedTargets.unity
-    guid: 89ed636faaaf34959983482a021ac4e6
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-VirtualButtons.unity
-    guid: 319d9b92c918a47e192e3d3382615bc8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/SamplesResources/Scenes/3-VuMarks.unity
-    guid: d9b53b25a285640cf8ac170a80603e34
-  - enabled: 1
-    path: Assets/01.Scenes/SampleOnion.unity
-    guid: 73bc61829f6e15c47b045ecec1beb205
-  - enabled: 1
-    path: Assets/01.Scenes/ColorBlindness.unity
-    guid: 9785c955f846b1c4a8de770661d39de8
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/01.Scenes/Leap Motion Test.unity
     guid: fc2c7facadb359542a76fe9e70f1e219
   - enabled: 1
     path: Assets/01.Scenes/BlinessTest.unity
     guid: 8a0a5f8ea5502ba4b8d49b7768683c2d
+  - enabled: 1
+    path: Assets/01.Scenes/visionMeasurement.unity
+    guid: b8963f02e8b1fd54a8abf212deceac34
+  - enabled: 1
+    path: Assets/01.Scenes/Candle.unity
+    guid: e82a648b67570894891f514552c7c0e3
   m_configObjects: {}
