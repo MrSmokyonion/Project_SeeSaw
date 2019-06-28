@@ -36,6 +36,7 @@ public class MenuSystem : MonoBehaviour
     private bool isActive;
     private bool menuActive; // 세부 메뉴가 켜져있는지 나타내는값. true => 하나라도 떠있음. false => 아무것도 안 떠있음.
     private bool delay; // 메뉴 입력 딜레이. true => 딜레이중. false => 입력 가능
+    private bool isFaceToCamera;
     private int State; //현재 몇번 메뉴에 있는지 나타내는 값. 0 = 처음.
 
 
@@ -54,6 +55,7 @@ public class MenuSystem : MonoBehaviour
         isActive = false;
         menuActive = false;
         delay = false;
+        isFaceToCamera = false;
         State = 0;
         btn.SetActive(false);
         menu.SetActive(false);
@@ -63,7 +65,7 @@ public class MenuSystem : MonoBehaviour
     //버튼 활/비활성화. 손에 생기는 버튼에 대한 메소드.
     public void ShowBtn()
     {
-        if (menuActive)
+        if (menuActive || !isFaceToCamera)
             return;
 
         btn.SetActive(true);
@@ -72,6 +74,11 @@ public class MenuSystem : MonoBehaviour
     public void HideBtn()
     {
         btn.SetActive(false);
+    }
+
+    public void SetIsFaceToCamera(bool b)
+    {
+        isFaceToCamera = b;
     }
     //=======================================================
 

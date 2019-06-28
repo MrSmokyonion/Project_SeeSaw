@@ -9740,6 +9740,7 @@ GameObject:
   - component: {fileID: 1137686792953638}
   - component: {fileID: 1137686792953639}
   - component: {fileID: 1137686792953640}
+  - component: {fileID: 1137686792953641}
   m_Layer: 0
   m_Name: LoPoly Rigged Hand Left
   m_TagString: Untagged
@@ -9899,7 +9900,59 @@ MonoBehaviour:
   PointingType: 1
   PointingDirection: {x: 0, y: 0, z: 1}
   TargetObject: {fileID: 0}
-  OnAngle: 45
+  OnAngle: 25.4
+  OffAngle: 65
+  ShowGizmos: 1
+--- !u!114 &1137686792953641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137686792953637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c057ae8396c1146c98a146b81dcc5870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 444787430}
+        m_MethodName: SetIsFaceToCamera
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeactivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 444787430}
+        m_MethodName: SetIsFaceToCamera
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  Period: 0.1
+  HandModel: {fileID: 114994684605379707}
+  PointingType: 0
+  PointingDirection: {x: 0.7, y: 0.27, z: -1}
+  TargetObject: {fileID: 0}
+  OnAngle: 44.2
   OffAngle: 65
   ShowGizmos: 1
 --- !u!1 &1238167366562321
@@ -12128,12 +12181,12 @@ PrefabInstance:
     - target: {fileID: 7195930317904818973, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_fontSize
-      value: 3.67
+      value: 4.46
       objectReference: {fileID: 0}
     - target: {fileID: 7195930317904818973, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 3.67
+      value: 4.46
       objectReference: {fileID: 0}
     - target: {fileID: 7195930317904818973, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
@@ -12164,6 +12217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.materialCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195930317904818973, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
+        type: 3}
+      propertyPath: m_paragraphSpacing
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 7195930318463583079, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
@@ -12263,7 +12321,7 @@ PrefabInstance:
     - target: {fileID: 7195930318619686824, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7195930318619686824, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
@@ -12283,12 +12341,17 @@ PrefabInstance:
     - target: {fileID: 7195930318619686824, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_fontSize
-      value: 4.02
+      value: 4.23
       objectReference: {fileID: 0}
     - target: {fileID: 7195930318619686824, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 4.02
+      value: 4.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195930318619686824, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
+        type: 3}
+      propertyPath: m_paragraphSpacing
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 7195930319515574775, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
@@ -12298,7 +12361,7 @@ PrefabInstance:
     - target: {fileID: 7195930319515574775, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7195930319515574775, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
         type: 3}
@@ -12324,6 +12387,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.materialCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195930319515574775, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195930319515574775, guid: a5cffa18a2028a246a1ca8f859c9a7c8,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cffa18a2028a246a1ca8f859c9a7c8, type: 3}
