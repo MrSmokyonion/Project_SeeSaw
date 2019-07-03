@@ -29,12 +29,12 @@ public class VisionResultObj : MonoBehaviour
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene("Leap Motion Test");
+        SceneManager.LoadScene("Main");
     }
 
     private void WhenLoadScene(Scene s, LoadSceneMode m)
     {
-        if (s.name == "Leap Motion Test")
+        if (s.name == "Main")
         {
             //메인 돌아왔을 때 할 작업들.
             Debug.Log(result);

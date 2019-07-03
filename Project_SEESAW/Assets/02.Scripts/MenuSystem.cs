@@ -223,7 +223,7 @@ public class MenuSystem : MonoBehaviour
 
     public void LoadColorBlind()
     {
-        SceneManager.LoadScene("BlinessTest");
+        SceneManager.LoadScene("ColorBlind");
     }
 
     public void LoadVisionTest()

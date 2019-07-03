@@ -28,7 +28,7 @@ public class ResultObj : MonoBehaviour
 
     void whenLoaded(Scene s, LoadSceneMode m)
     {
-        if(s.name == "Leap Motion Test")
+        if(s.name == "Main")
         {
             BravoX_L tmp = GameObject.Find("CenterEyeAnchor").GetComponent<BravoX_L>();
             tmp.Saturation_Red = result.x;
@@ -40,6 +40,6 @@ public class ResultObj : MonoBehaviour
 
     public void LoadToMain()
     {
-        SceneManager.LoadScene("Leap Motion Test");
+        SceneManager.LoadScene("Main");
     }
 }

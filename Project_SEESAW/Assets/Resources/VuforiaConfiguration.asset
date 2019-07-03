@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2067402452, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Script: {fileID: -2067402452, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
     vuforiaLicenseKey: 
-    ufoLicenseKey: QWJZSHpyNy8vLy8vQUFBQUtKS0RkT3FCdEVlcHNoR1ROdktPcjVpT25TdkVRQUJqNmJEREY0eUt0WFMzVmtMZjhRMnJXL21rRkw5QW1ObCt4UC9Fc1l2bWJVMHVTUHBsZVh5c2Z4UzNMTVNTSmlPZ1E0emcyMDRVZjZKeExCeVp6YjFUOTY3ZFFHRXhNWFRlUlVPOWEzSTNZTTFzK0tyNWdXVDV0OTRhREdSUTFtcEJjQ1hvOGk2MFRDSFUzT3paL2RjRmNITEw2TEdxVVZuQVBjdktuQ09ieTFrT2g0VzlVWDAvM1BadTNueDJyeEwyMWVJZ2xPT1d1TlRUanN3OHBLNnhjditlOHNQYloyV1liYWw0TzB6cVFIM1kyYVJ6TE9ELzFsZkM4S3NsZEEwRnJ6VElzalpVNmJrL3AwNy9WT2NWakt0MUtySzdJbWRVMGE5OHI2cTBnNk9WZlNpcmNvZ1l1ZmI3dmcrTXNrcm1XSlFlUVpJZFRCNEw=
+    ufoLicenseKey: QVIwV3N3Yi8vLy8vQUFBQUtGR1N1THdGaGtSYWc1bmFNbGE0Yk5raE9kN1B6UmRDMXYrbkR5NXhLc0E4N2w3bitjZnoxaW51RUgyZ2lNZ2FFQk5oSU93YW5EWGVQRlg2aVpnZ0c2ODkrd1lYWDdjUThFQjEwMVBBbkRjNlN3TUpxQzBRMWNKc1pFU2UzM3ErcklpbEh3bHlkR0lRdUF1WjVCN3JSSi93YmZHejZxRVAzSXVyK2UveTFRWUhscUZUU3JlZVBBWVJSYWlPWEJXcjdzMmdCcHM2SG5iMkJYNjJmejk1RlNQZGJmNC94Z0lNKzROMGJyMjNzRjJGT3pnOFVqMUVYeXozaXZoMDVsUEhDclY4ZVVXTTd1czhWeHpjS09YUlYrMFgvaExaSGgrNVE1WUd1Y2VxV2ltZXF4OUtZTVh4TllDTU9YRytiY1l3OE5uY3hmdFludHpGbnJtcWh1Q3JaMEpvcVF2OGtQVCs2czFGemR2V2IxN0Y=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 4
+    maxSimultaneousImageTargets: 1
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
     version: 8.1.11
@@ -48,9 +48,8 @@ MonoBehaviour:
   videoBackground:
     clippingMode: 0
     numDivisions: 2
-    videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
-      type: 3}
-    matteShader: {fileID: 15310, guid: 0000000000000000f000000000000000, type: 0}
+    videoBackgroundShader: {fileID: 0}
+    matteShader: {fileID: 0}
     videoBackgroundEnabled: 1
   deviceTracker:
     autoInitTracker: 0
